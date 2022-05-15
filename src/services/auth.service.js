@@ -33,6 +33,12 @@ const loginUserWithToken = async (idenaAuthToken) => {
         isAddressVerified: true,
       });
     }
+
+    if (!user.isAddressVerified) {
+      user.isAddressVerified = true;
+      await user.save();
+    }
+
     return user;
   } catch (error) {
     if (error instanceof ApiError) {
