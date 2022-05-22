@@ -40,6 +40,7 @@ function* refreshTokens() {
     const newTokens = yield call(getTokens, tokens.refresh.token);
     setAuthLocalStorage(JSON.stringify(newTokens), null);
   } catch (e) {
+    removeAuthLocalStorage();
     yield put({ type: actionNames[generalSliceName].updateTokensSecured, payload: false });
     console.error(e);
   }
