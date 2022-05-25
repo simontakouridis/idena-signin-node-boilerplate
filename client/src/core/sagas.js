@@ -1,4 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 import { sliceName as generalSliceName } from './reducer';
 import { actionNames } from './constants';
 import { idenaAuthTokenInit, getTokens, logout, getUsers } from './async';
@@ -11,7 +12,7 @@ function* processLogin({ payload: idenaAuthToken }) {
     yield put({ type: actionNames[generalSliceName].updateTokensSecured, payload: true });
   } catch (e) {
     console.error(e);
-    yield put({ type: actionNames[generalSliceName].error, payload: 'Error logging in' });
+    toast('Error logging in');
   }
 }
 
@@ -25,7 +26,7 @@ function* processlogout() {
     yield call(logout, tokens.refresh.token);
   } catch (e) {
     console.error(e);
-    yield put({ type: actionNames[generalSliceName].error, payload: 'Error logging out' });
+    toast('Error logging out');
   } finally {
     yield put({ type: actionNames[generalSliceName].updateTokensSecured, payload: false });
   }

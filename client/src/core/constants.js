@@ -27,7 +27,6 @@ export const actionNames = {
   [generalSliceName]: {
     updateTokensSecured: generalSliceName + '/updateTokensSecured',
     updateUser: generalSliceName + '/updateUser',
-    error: generalSliceName + '/error',
     updateData: generalSliceName + '/updateData',
     clearData: generalSliceName + '/clearData'
   }

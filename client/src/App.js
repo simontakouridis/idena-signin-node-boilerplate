@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { sliceName as generalSliceName } from './core/reducer';
 import { actionNames } from './core/constants';
 import { getAuthLocalStorage, removeAuthLocalStorage, getExpiresCurrentUnixMilli, truncateAddress } from './core/utilities';
@@ -13,7 +13,6 @@ function App() {
   const user = useSelector(state => state.general.user);
   const users = useSelector(state => state.general.data.users);
   const tokensSecured = useSelector(state => state.general.tokensSecured);
-  const error = useSelector(state => state.general.error);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -51,12 +50,6 @@ function App() {
     }
     return () => intervalId && clearInterval(intervalId);
   }, [tokensSecured]);
-
-  useEffect(() => {
-    if (error) {
-      toast(error);
-    }
-  }, [error]);
 
   const idenaSignIn = () => {
     const token = uuidv4();
