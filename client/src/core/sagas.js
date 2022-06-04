@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 import { sliceName as generalSliceName } from './reducer';
-import { actionNames } from './constants';
+import { appConfigurations, actionNames } from './constants';
 import { idenaAuthTokenInit, getTokens, logout, getUsers } from './async';
 import { getAuthLocalStorage, setAuthLocalStorage, removeAuthLocalStorage } from './utilities';
 
@@ -29,6 +29,7 @@ function* processlogout() {
     toast('Error logging out');
   } finally {
     yield put({ type: actionNames[generalSliceName].updateTokensSecured, payload: false });
+    window.location.href = `${appConfigurations.localBaseUrl}`;
   }
 }
 
