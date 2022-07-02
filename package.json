@@ -1,10 +1,10 @@
 {
-  "name": "node-boilerplate-idena-signin",
+  "name": "idena-signin-node-boilerplate",
   "version": "1.0.0",
   "description": "Create a Node.js app with Idena Sign-In",
   "bin": "bin/createNodejsApp.js",
   "main": "src/index.js",
-  "repository": "https://github.com/simontakouridis/node-boilerplate-idena-signin.git",
+  "repository": "https://github.com/simontakouridis/idena-signin-node-boilerplate.git",
   "author": "Simon Takouridis <simontakouridis@gmail.com>",
   "license": "MIT",
   "engines": {

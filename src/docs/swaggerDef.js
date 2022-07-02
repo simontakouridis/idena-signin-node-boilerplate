@@ -4,11 +4,11 @@ const config = require('../config/config');
 const swaggerDef = {
   openapi: '3.0.0',
   info: {
-    title: 'node-boilerplate-idena-signin',
+    title: 'idena-signin-node-boilerplate',
     version,
     license: {
       name: 'MIT',
-      url: 'https://github.com/simontakouridis/node-boilerplate-idena-signin/blob/master/LICENSE',
+      url: 'https://github.com/simontakouridis/idena-signin-node-boilerplate/blob/master/LICENSE',
     },
   },
   servers: [
